@@ -1,0 +1,74 @@
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization:
+      fail-on-empty-beans: false
+      close-closeable: true
+      flush-after-write-value: true
+      write-date-keys-as-timestamps: false
+    deserialization:
+      fail-on-unknown-properties: true
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:floristeria}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:root}
+    # hikari:
+    #   minimum-idle: 5
+    #   maximum-pool-size: 30
+    #   leak-detection-threshold: 10000
+    #   max-lifetime: 1800000 
+  jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        globally-quoted-identifiers: true
+        format-sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  sql:
+    init:
+      mode: never
+      continue-on-error: false
+      schema-locations: classpath:/data/schema.sql
+      data-locations: classpath:/data/data.sql
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+  mail:
+    host: ${EMAIL_HOST}
+    port: ${EMAIL_PORT}
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          write-timeout: 10000
+          connection-timeout: 10000
+          timeout: 10000
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    verify:
+      host: ${VERIFY_EMAIL_HOST}
+  application:
+    name: AfFloristeria-Grupo-Blomst-Server
+
+server:
+  port: ${CONTAINER_PORT}
+  error:
+    path: /user/error
+    whitelabel:
+      enabled: true
+
+jwt:
+  expiration: ${JWT_EXPIRATION}
+  secret: ${JWT_SECRET:62e0b15b67df7ecaa26fb839a006b5f86546e704a3c786ff722561c91e744aee5408c5d270bdca8db21a34d7cf037b02b27f0dcdee4ee67bac00f3a0cb13ffb7}

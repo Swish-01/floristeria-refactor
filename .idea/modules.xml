@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/african-safari-back.iml" filepath="$PROJECT_DIR$/.idea/african-safari-back.iml" />
+      <module fileurl="file://$PROJECT_DIR$/safari/safari.iml" filepath="$PROJECT_DIR$/safari/safari.iml" />
+    </modules>
+  </component>
+</project>
