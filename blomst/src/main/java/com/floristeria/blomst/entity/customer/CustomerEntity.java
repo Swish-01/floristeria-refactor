@@ -1,10 +1,14 @@
 package com.floristeria.blomst.entity.customer;
 
+import com.floristeria.blomst.entity.order.OrderEntity;
 import com.floristeria.blomst.entity.user.Auditable;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.*;
-
 
 @Getter
 @Setter
@@ -26,4 +30,8 @@ public class CustomerEntity extends Auditable {
     @Column(unique = true, nullable = false)
     private String email;
     private String phone;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private Set<OrderEntity> orders;
+
 }

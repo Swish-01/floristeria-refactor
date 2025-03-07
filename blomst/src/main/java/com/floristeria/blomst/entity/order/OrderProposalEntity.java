@@ -41,6 +41,7 @@ public class OrderProposalEntity extends Auditable {
     @Column(nullable = false)
     private LocalDateTime sentDate; 
 
-    private LocalDateTime rejectionDate; 
+    private LocalDateTime acceptanceDate;
+    private LocalDateTime rejectionDate;
     private LocalDateTime expirationDate;
 }

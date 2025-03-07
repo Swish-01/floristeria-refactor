@@ -16,7 +16,6 @@ import static com.floristeria.blomst.utils.RequestUtils.getResponse;
 
 import com.floristeria.blomst.domain.Response;
 import com.floristeria.blomst.dto.order.Order;
-import com.floristeria.blomst.entity.order.OrderEntity;
 import com.floristeria.blomst.service.EmailService;
 import com.floristeria.blomst.service.order.OrderService;
 
